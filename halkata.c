@@ -406,7 +406,8 @@ void read_data()
     FILE* ch;
      ch = fopen("sign_up.txt","w");
 
-   //  id_num++;
+   //  id_num++; gotoxy(20,10);
+    printf("3.Enter user name  : ");
      fprintf(ch,"%d\n",id_num);
      for(int i=0;i<id_num;i++)
      {
@@ -493,19 +494,43 @@ void main_page()  /// account main page
 
 void login()   ///login function
 {
-    gotoxy(40,1);
+    gotoxy(42,1);
 
-         printf("------------------------------------------------------------------");
+         printf("...............................");
+         gotoxy(42,3);
 
-   gotoxy(50,2);
-      printf("---------- login ----------");
+         printf("..............................");
+          gotoxy(42,2);
+      printf(":");
+           gotoxy(42,3);
+      printf(":");
+            gotoxy(72,2);
+      printf(":");
+           gotoxy(72,3);
+      printf(":");
+               gotoxy(17,5);
+
+         printf("..................................................................................");
+                 gotoxy(17,18);
+
+         printf("..................................................................................");
+         for(int i=5;i<=18;i++)
+         {gotoxy(17,i);
+            printf(".");
+         }
+           for(int i=5;i<=18;i++)
+         {gotoxy(98,i);
+            printf(".");
+         }
+   gotoxy(48,2);
+      printf(" <<<<<LOGIN>>>>> ");
 
     char login_user_name[30],login_password[30];
 
-    gotoxy(18,7);
+    gotoxy(24,7);
     printf("1.Enter user name : ");
     scanf("%s",&login_user_name);
-   gotoxy(18,8);
+   gotoxy(24,8);
     printf("2.Enter password  : ");
     scanf("%s",&login_password);
 
@@ -576,11 +601,36 @@ void signup()   ///sign up function
 
    read_data();
    read_tran();
+         gotoxy(42,1);
+         printf("...............................");
+         gotoxy(42,3);
 
-   gotoxy(50,2);
+         printf("..............................");
+          gotoxy(42,2);
+      printf(":");
+           gotoxy(42,3);
+      printf(":");
+            gotoxy(72,2);
+      printf(":");
+           gotoxy(72,3);
+      printf(":");
+         gotoxy(17,5);
 
-   printf("----------sign up----------\n");
+         printf("..................................................................................");
+     gotoxy(17,18);
 
+         printf("..................................................................................");
+              for(int i=5;i<=18;i++)
+         {gotoxy(17,i);
+            printf(".");
+         }
+           for(int i=5;i<=18;i++)
+         {gotoxy(98,i);
+            printf(".");
+         }
+   gotoxy(48,2);
+
+   printf("<<<<<SIGN UP>>>>>");
    gotoxy(18,6);
    printf("1.Enter first name : ");
    scanf("%s",&user[id_num].first_name);
@@ -598,18 +648,39 @@ void signup()   ///sign up function
    scanf("%s",&user[id_num].password);
 
       int i;
+
      for(i=0;i<id_num;i++)  ///to check if the userID is taken
    {
+
+
+
        if(strcmp(user[id_num].user_name,user[i].user_name)==0){
 
             system("CLS");
-        gotoxy(47,3);
-        printf("*** user name already taken***");
-        gotoxy(53,5);
-        printf("Try another one");
+              gotoxy(17,4);
+         printf("..................................................................................");
+     gotoxy(17,18);
 
-        gotoxy(18,8);
+         printf("..................................................................................");
+              for(int i=5;i<=18;i++)
+         {gotoxy(17,i);
+            printf(".");
+         }
+           for(int i=5;i<=18;i++)
+         {gotoxy(98,i);
+            printf(".");
+         }
+        gotoxy(45,6);
+        printf("-----user name already taken-----");
+         gotoxy(43,7);
+        printf("*************************************");
+        gotoxy(52,8);
+        printf("Try another one >>>>");
+
+        gotoxy(20,10);
     printf("3.Enter user name  : ");
+     gotoxy(20,11);
+    printf("--------------------");
     scanf("%s",&user[id_num].user_name);
      i=0;  /// to check if the new userID is taken
        }
@@ -626,13 +697,13 @@ void signup()   ///sign up function
   write_data();
   write_tran();
 
-   gotoxy(18,12);
+   gotoxy(48,12);
    printf("***sign up succesfull***");
 
-    gotoxy(18,14);
+    gotoxy(30,14);
    printf("Note : please login using your user name and password\n");
 
-     gotoxy(18,16);
+     gotoxy(40,16);
    printf("Press any key to continue : ");
 
    getch();
@@ -682,6 +753,7 @@ void signup()   ///sign up function
         signup();
 
     else if(n==1)
+    
         login();
 
 }
@@ -694,3 +766,7 @@ int main()
     First_page();
 
 }
+
+
+
+
