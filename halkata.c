@@ -1,6 +1,4 @@
 
-
-
 #include <stdio.h>
 #include <conio.h>
 #include <windows.h>
@@ -607,10 +605,14 @@ void show_tran() /// to print and show trasantions1
     main_page();
 }
 
+
+
+
+
 void read_note()
 {
     FILE *ch;
-    ch = fopen("notes.txt", "r");
+    ch = fopen("notes.txt","r");
 
     num = 0;
 
@@ -746,28 +748,30 @@ void note_page() /// note page
     {
 
         system("cls");
-          gotoxy(50, 12);
 
-    printf("..................................................................................");
+          gotoxy(50,9);
+    printf("*********************************************************************************");
+    gotoxy(50,10);
+    printf("                               My diary                                          ");
     gotoxy(50, 28);
 
-    printf("..................................................................................");
-    for (int i = 12; i <= 28; i++)
+    printf("*********************************************************************************");
+    for (int i = 9; i <= 28; i++)
     {
         gotoxy(50, i);
         printf(".");
     }
-    for (int i = 12; i <= 28; i++)
+    for (int i = 9; i <= 28; i++)
     {
         gotoxy(131, i);
         printf(".");
     }
- gotoxy(50, 11);
+    gotoxy(50, 11);
 
-    printf("...................................................................................");
+    printf("**********************************************************************************");
     gotoxy(50, 29);
 
-    printf("...................................................................................");
+    printf("**********************************************************************************");
     for (int i = 11; i <= 29; i++)
     {
         gotoxy(50, i);
@@ -889,6 +893,21 @@ void add_notes() // 1
 void remove_note() // 1
 {
     read_note();
+      gotoxy(50, 10);
+      printf("..................................................................................");
+    gotoxy(50, 27);
+
+    printf("..................................................................................");
+    for (int i = 10; i <= 27; i++)
+    {
+        gotoxy(50, i);
+        printf(".");
+    }
+    for (int i = 10; i <= 27; i++)
+    {
+        gotoxy(131, i);
+        printf(".");
+    }
     num = 0;
 
     int start = 0, k = 4, s, n;
@@ -915,19 +934,19 @@ void remove_note() // 1
             }
         }
     }
-    gotoxy(10, s + 4);
+    gotoxy(56, s + 12);
 
     printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-    gotoxy(10, s + 5);
+    gotoxy(56, s + 13);
     printf("      ** Enter the serial of the note u want to remove **");
-    gotoxy(10, s + 6);
+    gotoxy(56, s + 14);
 
     printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
-    gotoxy(10, s + 7);
+    gotoxy(56, s + 16);
     printf("Enter :");
     scanf("%d", &n);
-    gotoxy(10, s + 8);
+    gotoxy(56, s + 17);
 
     printf("~~~~~~~~~~");
 
@@ -940,9 +959,9 @@ void remove_note() // 1
 
     loading(); // For loading animation.
 
-    gotoxy(50, s + 10);
+    gotoxy(97, s + 22);
     printf(">> Note removed successfully <<");
-    gotoxy(52, s + 12);
+    gotoxy(99, s + 23);
     printf("PRESS ANY KEY TO GET BACK");
 
     getch();
@@ -950,6 +969,9 @@ void remove_note() // 1
 
     note_page();
 }
+
+
+
 
 void read_data() // 1
 {
@@ -1153,7 +1175,7 @@ void main_page() /// account main page or landing page.12
 
         gotoxy(53, 28);
         arrowHere(7, position);
-        printf("7. Cradits ");
+        printf("7. About us ");
 
         gotoxy(53, 30);
         arrowHere(8, position);
@@ -1203,21 +1225,21 @@ void main_page() /// account main page or landing page.12
         {
             system("cls");
             hidecursor();
-            note_page(); /// work from here
+            note_page();
         }
 
         else if (position == 6 && keyPressed == 13)
         {
             system("cls");
             hidecursor();
-            // Show_Cradits(); ///To show all cradits.
+            login();
         }
 
         else if (position == 7 && keyPressed == 13)
         {
             system("cls");
             hidecursor();
-            login();
+            aboutUs();
         }
 
         else if (position == 8 && keyPressed == 13)
@@ -1232,6 +1254,7 @@ void main_page() /// account main page or landing page.12
     }
 
 }
+
 
 
 
@@ -1455,12 +1478,15 @@ void signup() /// sign up function//12
     id[id_num].id_balance = 0;
     id[id_num].tran_num = 0;
 
+    strcpy(note_user[id_num].note_name,user[id_num].user_name);
+    note_user[id_num].num_note = 0;
+
     id_num++;
 
     // strcpy(password,user[id_num].password);
     write_data();
     write_tran();
-    read_note();
+    write_note();
 
     loading(); //For loading animation.
 
@@ -1490,6 +1516,7 @@ void First_page()//12
 
         system("cls");
         hidecursor();
+
         gotoxy(65, 11);
         printf("......................................................");
 
@@ -1554,4 +1581,99 @@ int main()
     First_page();
 
     return 0;
+}
+
+///Creators info
+void aboutUs()
+{
+    char UD = 179;
+    char LR = 22;
+
+    gotoxy(69, 12);
+    printf("ABOUT US");
+
+    // For box around about us.
+    for (int x = 63; x <= 84; x++)
+    {
+        gotoxy(x, 11);
+        printf("%c", LR);
+    }
+
+    for (int x = 63; x <= 84; x++)
+    {
+        gotoxy(x, 13);
+        printf("%c", LR);
+    }
+
+    gotoxy(62, 12);
+    printf("%c", UD);
+
+    gotoxy(85, 12);
+    printf("%c", UD);;
+
+    //Rakin info.
+    gotoxy(30,15);
+    printf("Shafkat Islam Rakin");
+    gotoxy(30, 16);
+    printf("ID: C231106");
+    gotoxy(30, 17);
+    printf("Dept. of CSE");
+    gotoxy(30,18);
+    printf("IIUC.");
+
+    for(int y = 15; y <= 18; y++)
+    {
+        gotoxy(50,y);
+        printf("%c",UD);
+    }
+
+    //Istiyaq info.
+    gotoxy(52,15);
+    printf("Sayed Shahriar Istiyaq");
+    gotoxy(52, 16);
+    printf("ID: C231107");
+    gotoxy(52, 17);
+    printf("Dept. of CSE");
+    gotoxy(52,18);
+    printf("IIUC.");
+
+    for(int y = 15; y <= 18; y++)
+    {
+        gotoxy(75,y);
+        printf("%c",UD);
+    }
+
+
+    //Nabiul info
+    gotoxy(77,15);
+    printf("Nabiul Faisal Tawfick");
+    gotoxy(77, 16);
+    printf("ID: C231110");
+    gotoxy(77, 17);
+    printf("Dept. of CSE");
+    gotoxy(77,18);
+    printf("IIUC.");
+
+        for(int y = 15; y <= 18; y++)
+    {
+        gotoxy(99,y);
+        printf("%c",UD);
+    }
+
+
+    //Ifty info
+    gotoxy(101,15);
+    printf("Iftekhar Hasan");
+    gotoxy(101, 16);
+    printf("ID: C231084");
+    gotoxy(101, 17);
+    printf("Dept. of CSE");
+    gotoxy(101,18);
+    printf("IIUC.");
+
+    gotoxy(55, 22);
+    printf(">>>Press any key to go back<<<");
+    getch();
+
+    main_page();
 }
