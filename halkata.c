@@ -1,5 +1,6 @@
 
 
+
 #include <stdio.h>
 #include <conio.h>
 #include <windows.h>
@@ -745,36 +746,52 @@ void note_page() /// note page
     {
 
         system("cls");
+          gotoxy(50, 12);
 
-        gotoxy(15, 3);
-        printf("::::::::::::::::::::::::::::::::::::::");
-        gotoxy(15, 22);
-        printf("::::::::::::::::::::::::::::::::::::::");
-        for (int i = 3; i <= 22; i++)
-        {
+    printf("..................................................................................");
+    gotoxy(50, 28);
 
-            gotoxy(15, i);
-            printf("..");
-        }
-        for (int i = 3; i <= 22; i++)
-        {
+    printf("..................................................................................");
+    for (int i = 12; i <= 28; i++)
+    {
+        gotoxy(50, i);
+        printf(".");
+    }
+    for (int i = 12; i <= 28; i++)
+    {
+        gotoxy(131, i);
+        printf(".");
+    }
+ gotoxy(50, 11);
 
-            gotoxy(52, i);
-            printf("..");
-        }
-        gotoxy(18, 7);
+    printf("...................................................................................");
+    gotoxy(50, 29);
+
+    printf("...................................................................................");
+    for (int i = 11; i <= 29; i++)
+    {
+        gotoxy(50, i);
+        printf(".");
+    }
+    for (int i = 11; i <= 29; i++)
+    {
+        gotoxy(131, i);
+        printf(".");
+    }
+
+        gotoxy(53, 14);
         arrowHere(1, position);
         printf(" Show notes");
 
-        gotoxy(18, 9);
+        gotoxy(53, 16);
         arrowHere(2, position);
         printf(" Add note");
 
-        gotoxy(18, 11);
+        gotoxy(53, 18);
         arrowHere(3, position);
         printf(" Remove note");
 
-        gotoxy(18, 13);
+        gotoxy(53, 20);
         arrowHere(4, position);
         printf(" Back to Main menu.");
 
