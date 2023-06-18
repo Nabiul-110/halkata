@@ -92,6 +92,35 @@ void loading1()
     }
 }
 
+void loading2()
+{
+       int time = 15;
+    char c1 = 177, c2 = 219;
+    gotoxy(44, 14);
+    printf("Loading ... Please wait.");
+
+    // 1st character print.
+    int x1 = 45;
+    while (x1 <= 65)
+    {
+        gotoxy(x1, 16);
+        printf("%c", c1);
+        x1++;
+    }
+
+    // 2nd character print.
+    int x2 = 45;
+    while (x2 <= 65)
+    {
+        gotoxy(x2, 16);
+        printf("%c", c2);
+        Sleep(time);
+        x2++;
+    }
+}
+
+
+
 /// Structures.
 struct transaction_info
 {
@@ -838,6 +867,8 @@ void note_page() /// note page
     }
 }
 
+
+
 void add_notes() // 1
 {
     read_note();
@@ -847,15 +878,15 @@ void add_notes() // 1
     gotoxy(17, 7);
 
     printf("..................................................................................");
-    gotoxy(17, 18);
+    gotoxy(17, 20);
 
     printf("..................................................................................");
-    for (int i = 5; i <= 18; i++)
+    for (int i = 5; i <= 20; i++)
     {
         gotoxy(17, i);
         printf(".");
     }
-    for (int i = 5; i <= 18; i++)
+    for (int i = 5; i <= 20; i++)
     {
         gotoxy(98, i);
         printf(".");
@@ -876,12 +907,12 @@ void add_notes() // 1
 
     write_note();
 
-    loading(); // For loading animation.
+    loading2(); // For loading animation.
 
-    gotoxy(45, 13);
+    gotoxy(42, 17);
     printf(">> Note added successfully <<");
 
-    gotoxy(45, 16);
+    gotoxy(42, 19);
     printf("=>Press any key to get back<=");
 
     getch();
